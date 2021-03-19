@@ -17,6 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//use App\Mail\WelcomeMail;
+//use Illuminate\Support\Facades\Mail;
+//Route::get('/email', function () {
+//    Mail::to('email@email.com')->send(new WelcomeMail());
+//    return new WelcomeMail();
+//});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/questionnaires/create', 'App\Http\Controllers\QuestionnaireController@create');
+Route::post('/questionnaires', 'App\Http\Controllers\QuestionnaireController@store');
+Route::get('/questionnaires/{questionnaire}', 'App\Http\Controllers\QuestionnaireController@show');
+
+Route::get('/questionnaires/{questionnaire}/questions/create', 'App\Http\Controllers\QuestionController@create');
+Route::post('/questionnaires/{questionnaire}/questions', 'App\Http\Controllers\QuestionController@store');
+//Route::get('/questionnaires/{questionnaire}/questions', 'App\Http\Controllers\QuestionController@show');
