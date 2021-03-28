@@ -35,7 +35,10 @@ class QuestionController extends Controller
     public function destory(Questionnaire $questionnaire, \App\Models\Question $question)
     {
 //        dd(request()->all());
-        dd($question->answers());
+        $question->answers()->delete();
+        $question->delete();
+
+        return redirect($questionnaire->path());
     }
 
 }
