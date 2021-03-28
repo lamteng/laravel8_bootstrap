@@ -18,18 +18,18 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                          <div class="form-group">
-                            <label for="purpose">Purpose</label>
-                            <input name="purpose" type="text" class="form-control" id="purpose" aria-describedby="purpose" placeholder="Enter Purpose">
-                            <small id="purposeHelp" class="form-text text-muted">Giving a purpose would increase responses.</small>
-                            @error('purpose')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                          </div>
+                            <div class="form-group">
+                                <label for="purpose">Purpose</label>
+                                <input name="purpose" type="text" class="form-control" id="purpose" aria-describedby="purpose" placeholder="Enter Purpose">
+                                <small id="purposeHelp" class="form-text text-muted">Giving a purpose would increase responses.</small>
+                                @error('purpose')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
                           <button type="submit" class="btn btn-primary">Create Questionnaire</button>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

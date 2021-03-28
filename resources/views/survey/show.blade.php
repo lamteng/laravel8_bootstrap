@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-
             <h1> {{ $questionnaire->title }} </h1>
             <form action="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title) }}" method="post">
                 @csrf
@@ -38,27 +37,34 @@
                     </div>
                        
                 @endforeach
-                <button class="btn btn-dark" type="submit">Complete Survey</button>
-            </form>
 
-            <div class="card">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input name="name" type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
-                    <small id="nameHelp" class="form-text text-muted">Hello! What's your name?</small>
+
+            <div class="card mt-4">
+                <div class="card-header"><strong>Your Information</strong></div>
+                <div class="card-body">
+                    <div class="col-md-8">
+                        <label for="name">Your Name</label>
+                        <input name="survey[name]" type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
+                        <small id="nameHelp" class="form-text text-muted">Hello! What's your name?</small>
                         @error('name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
-                </div>
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input name="email" type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter Email">
-                    <small id="emailHelp" class="form-text text-muted">Your Email Please!</small>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="email">Your Email</label>
+                        <input name="survey[email]" type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter Email">
+                        <small id="emailHelp" class="form-text text-muted">Your Email Please!</small>
                         @error('email')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
+                    </div>
+                    <div>
+                        <button class="btn btn-dark" type="submit">Complete Survey</button>
+                    </div>
                 </div>
+
             </div>
+        </form>
         </div>
     </div>
 </div>

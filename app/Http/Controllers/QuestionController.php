@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Questionnaire;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -31,5 +32,10 @@ class QuestionController extends Controller
         return redirect('/questionnaires/'.$questionnaire->id);
     }
 
+    public function destory(Questionnaire $questionnaire, \App\Models\Question $question)
+    {
+//        dd(request()->all());
+        dd($question->answers());
+    }
 
 }
